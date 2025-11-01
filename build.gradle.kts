@@ -1,8 +1,8 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 import java.util.Properties
 
 description = "Multi-module Pomodoro focus timer built with Jetpack Compose"
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.androidApplication) apply false
