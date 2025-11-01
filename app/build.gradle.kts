@@ -3,7 +3,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.kapt)
+    kotlin("kapt")
     alias(libs.plugins.hilt)
     alias(libs.plugins.ktlint)
 }
