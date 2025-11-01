@@ -55,3 +55,4 @@ coroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android
 glanceAppWidget = { module = "androidx.glance:glance-appwidget", version.ref = "glance" }
 glanceMaterial3 = { module = "androidx.glance:glance-material3", version.ref = "glance" }
 splashscreen = { module = "androidx.core:core-splashscreen", version = "1.0.1" }
+javaxInject = { module = "javax.inject:javax.inject", version = "1" }
