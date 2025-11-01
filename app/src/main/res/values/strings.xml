@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Pomodoro Focus</string>
+    <string name="notification_channel_name">Active Pomodoro</string>
+    <string name="notification_channel_description">Foreground timer updates and completion alerts</string>
+    <string name="notification_focus">Focus session</string>
+    <string name="notification_short_break">Short break</string>
+    <string name="notification_long_break">Long break</string>
+    <string name="notification_status_running">Remaining %1$s</string>
+    <string name="notification_status_paused">Paused • %1$s left</string>
+</resources>
