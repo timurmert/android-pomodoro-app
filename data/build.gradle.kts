@@ -23,6 +23,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
@@ -42,6 +43,7 @@ dependencies {
     implementation(libs.datastorePreferences)
     implementation(libs.workRuntime)
     implementation(libs.workHilt)
+    coreLibraryDesugaring(libs.desugarJdkLibs)
 
     kapt(libs.hiltCompiler)
     kapt(libs.roomCompiler)
