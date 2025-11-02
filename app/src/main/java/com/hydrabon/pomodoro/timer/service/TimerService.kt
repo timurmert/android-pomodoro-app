@@ -135,7 +135,7 @@ class TimerService : Service() {
 
     private fun cancel() {
         tickerJob?.cancel()
-        activeTimerStorage.clear()
+        serviceScope.launch { activeTimerStorage.clear() }
         stopForeground(STOP_FOREGROUND_REMOVE)
         stopSelf()
     }

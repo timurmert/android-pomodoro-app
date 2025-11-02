@@ -72,13 +72,16 @@ class HomeViewModel @Inject constructor(
 
     private fun Duration.formatMinutesSeconds(): String {
         val totalSeconds = inWholeSeconds
-        val minutes = totalSeconds / 60
-        val seconds = totalSeconds % 60
+        val minutes = (totalSeconds / 60).toInt()
+        val seconds = (totalSeconds % 60).toInt()
         return "%02d:%02d".format(minutes, seconds)
     }
 
     private fun computeTarget(duration: Duration, goalMinutes: Int): Int {
-        val perSession = duration.inWholeMinutes.coerceAtLeast(1)
+        val perSession = duration.inWholeMinutes
+            .coerceAtLeast(1)
+            .coerceAtMost(Int.MAX_VALUE.toLong())
+            .toInt()
         return (goalMinutes / perSession).coerceAtLeast(1)
     }
 }

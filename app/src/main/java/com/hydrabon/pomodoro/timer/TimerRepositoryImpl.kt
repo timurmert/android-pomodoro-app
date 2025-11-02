@@ -164,7 +164,10 @@ class TimerRepositoryImpl @Inject constructor(
     }
 
     private fun computeDailyTarget(focusDuration: Duration, goalMinutes: Int): Int {
-        val minutesPerSession = focusDuration.inWholeMinutes.coerceAtLeast(1)
+        val minutesPerSession = focusDuration.inWholeMinutes
+            .coerceAtLeast(1)
+            .coerceAtMost(Int.MAX_VALUE.toLong())
+            .toInt()
         return (goalMinutes / minutesPerSession).coerceAtLeast(1)
     }
 }
