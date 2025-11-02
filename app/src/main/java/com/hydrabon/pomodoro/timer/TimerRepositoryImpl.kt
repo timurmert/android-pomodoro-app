@@ -3,6 +3,7 @@ package com.hydrabon.pomodoro.timer
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.ContextCompat
+import com.hydrabon.pomodoro.di.ApplicationScope
 import com.hydrabon.pomodoro.model.TimerMode
 import com.hydrabon.pomodoro.model.TimerState
 import com.hydrabon.pomodoro.repository.SettingsRepository
@@ -163,7 +164,10 @@ class TimerRepositoryImpl @Inject constructor(
     }
 
     private fun computeDailyTarget(focusDuration: Duration, goalMinutes: Int): Int {
-        val minutesPerSession = focusDuration.inWholeMinutes.coerceAtLeast(1)
+        val minutesPerSession = focusDuration.inWholeMinutes
+            .coerceAtLeast(1)
+            .coerceAtMost(Int.MAX_VALUE.toLong())
+            .toInt()
         return (goalMinutes / minutesPerSession).coerceAtLeast(1)
     }
 }

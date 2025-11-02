@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -63,8 +64,9 @@ fun PomodoroApp() {
             ) {
                 composable(Destinations.HOME.route) {
                     val viewModel: HomeViewModel = hiltViewModel()
+                    val state by viewModel.state.collectAsStateWithLifecycle()
                     HomeScreen(
-                        state = viewModel.state,
+                        state = state,
                         onStart = viewModel::startTimer,
                         onPause = viewModel::pause,
                         onResume = viewModel::resume,
@@ -76,12 +78,14 @@ fun PomodoroApp() {
                 }
                 composable(Destinations.STATS.route) {
                     val viewModel: StatsViewModel = hiltViewModel()
-                    StatsScreen(state = viewModel.state)
+                    val state by viewModel.state.collectAsStateWithLifecycle()
+                    StatsScreen(state = state)
                 }
                 composable(Destinations.SETTINGS.route) {
                     val viewModel: SettingsViewModel = hiltViewModel()
+                    val state by viewModel.state.collectAsStateWithLifecycle()
                     SettingsScreen(
-                        state = viewModel.state,
+                        state = state,
                         onEvent = viewModel::onEvent,
                         onShowMiuiGuide = {
                             navController.navigate(Destinations.ONBOARDING_MIUI.route)
