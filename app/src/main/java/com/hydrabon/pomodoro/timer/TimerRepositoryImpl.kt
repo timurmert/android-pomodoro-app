@@ -1,6 +1,7 @@
 package com.hydrabon.pomodoro.timer
 
 import android.content.Context
+import android.content.Intent
 import androidx.core.content.ContextCompat
 import com.hydrabon.pomodoro.model.TimerMode
 import com.hydrabon.pomodoro.model.TimerState
@@ -140,6 +141,13 @@ class TimerRepositoryImpl @Inject constructor(
 
     private fun startService(action: String, mode: TimerMode, durationMillis: Long, expectedEndMillis: Long) {
         val intent = TimerService.intent(context, mode, durationMillis, expectedEndMillis).apply {
+            this.action = action
+        }
+        ContextCompat.startForegroundService(context, intent)
+    }
+
+    private fun startService(action: String) {
+        val intent = Intent(context, TimerService::class.java).apply {
             this.action = action
         }
         ContextCompat.startForegroundService(context, intent)
