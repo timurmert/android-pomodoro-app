@@ -3,6 +3,7 @@ package com.hydrabon.pomodoro.timer
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.ContextCompat
+import com.hydrabon.pomodoro.di.ApplicationScope
 import com.hydrabon.pomodoro.model.TimerMode
 import com.hydrabon.pomodoro.model.TimerState
 import com.hydrabon.pomodoro.repository.SettingsRepository
