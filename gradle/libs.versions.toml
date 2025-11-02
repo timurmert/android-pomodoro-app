@@ -15,6 +15,7 @@ espresso = "3.5.1"
 junit = "4.13.2"
 activityCompose = "1.8.2"
 glance = "1.0.0"
+desugar = "2.0.4"
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -56,3 +57,4 @@ glanceAppWidget = { module = "androidx.glance:glance-appwidget", version.ref = "
 glanceMaterial3 = { module = "androidx.glance:glance-material3", version.ref = "glance" }
 splashscreen = { module = "androidx.core:core-splashscreen", version = "1.0.1" }
 javaxInject = { module = "javax.inject:javax.inject", version = "1" }
+desugarJdkLibs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
