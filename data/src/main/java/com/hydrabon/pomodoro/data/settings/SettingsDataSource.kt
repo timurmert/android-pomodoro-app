@@ -19,7 +19,7 @@ private const val DATA_STORE_NAME = "pomodoro_settings"
 
 private val Context.settingsDataStore: DataStore<Preferences> by preferencesDataStore(name = DATA_STORE_NAME)
 
-internal class SettingsDataSource @Inject constructor(
+class SettingsDataSource @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
     val settings: Flow<PomodoroSettings> = context.settingsDataStore.data.map { prefs ->
