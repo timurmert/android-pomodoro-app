@@ -9,7 +9,7 @@ import com.hydrabon.pomodoro.data.session.SessionEntity
 @Database(
     entities = [SessionEntity::class],
     version = 1,
-    exportSchema = true
+    exportSchema = false
 )
 @TypeConverters(SessionConverters::class)
 abstract class PomodoroDatabase : RoomDatabase() {
