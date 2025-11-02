@@ -5,14 +5,14 @@ plugins {
 
 java {
     toolchain {
-        // Use the JDK available in the execution environment instead of forcing a
-        // download of Java 17, while still targeting Java 17 bytecode.
-        languageVersion.set(JavaLanguageVersion.of(21))
+        // Align with the project's Java 17 requirement so that Gradle can reuse a
+        // locally installed JDK without downloading Java 21.
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
     compilerOptions {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
